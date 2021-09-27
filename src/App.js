@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
@@ -22,7 +21,6 @@ class App extends React.Component {
     await this.setState({
       searchQuery: event.target.city.value
     });
-
     let reqURL = `https://city-explorer-mohammad-bader.herokuapp.com/getLocation?q=${this.state.searchQuery}`;
     let result = await axios.get(reqURL);
     this.setState({
@@ -30,7 +28,6 @@ class App extends React.Component {
       showLocationInfo: true,
     });
     console.log(this.state.locationResult);
-
   }
 
   render() {
@@ -39,7 +36,6 @@ class App extends React.Component {
         <Form onSubmit={this.LocationInfo} style={{margin:'50px'}} >
           <Row className='align-items-center'>
             <Col xs="auto">
-             
               <Form.Control name='city' placeholder="Enter City Name" />
             </Col>
             <Col xs="auto">
@@ -59,14 +55,9 @@ class App extends React.Component {
                  <br></br>
                  type: {this.state.locationResult.type}
                  <br></br>
-
                  Lat: {this.state.locationResult.lat}
                  <br></br>
-
                  Lon: {this.state.locationResult.lon}
-
-
-
                 </Card.Text>
               </Card.Body>
             </Card>
